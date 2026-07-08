@@ -34,27 +34,27 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <div className="accent-line"></div>
           <span className="badge">
-            Custom Software • Mobile Apps • Websites
+            MAHESHWARI APP SOLUTIONS
           </span>
 
           <h1>
-            We Build <span>Digital Products</span> for Modern Businesses.
+            Building Software That <span>Moves Businesses</span> Forward.
           </h1>
 
           <p>
-            Maheshwari App Solutions delivers modern websites, mobile applications,
-            custom enterprise software, and AI-powered business solutions that help companies scale faster and run smarter.
+            Professional websites, mobile apps, AI automation and enterprise solutions.
           </p>
 
           <div className="hero-buttons">
             <Button variant="primary" onClick={handleScrollToContact}>
-              Get Started
+              Start Your Project
               <ArrowRight size={18}/>
             </Button>
 
             <Button variant="secondary" onClick={handleScrollToPortfolio}>
-              View Portfolio
+              View Work
             </Button>
           </div>
         </motion.div>

@@ -11,10 +11,10 @@
     padding-inline: 24px;
 }
 
-/* Grid */
-.services-grid {
+/* Bento Grid */
+.services-bento-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -36,6 +36,18 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* Bento Grid Span Overrides */
+.service-card.featured {
+    grid-column: span 2;
+    padding: 48px 40px;
+}
+
+.service-card.highlight-wide {
+    grid-column: span 2;
+    padding: 32px 24px;
+}
+
+/* Icon box */
 .service-icon-box {
     width: 48px;
     height: 48px;
@@ -66,6 +78,7 @@
     font-weight: 600;
     color: #FFFFFF;
     margin-bottom: 12px;
+    letter-spacing: -0.01em;
 }
 
 .service-desc {
@@ -74,6 +87,11 @@
     color: #CFCFCF;
     font-weight: 300;
     margin-bottom: 16px;
+}
+
+.service-card.featured .service-desc {
+    font-size: 16px;
+    max-width: 600px;
 }
 
 .service-learn-more {
@@ -101,28 +119,31 @@
     transform: translateX(4px);
 }
 
-@media (max-width: 1200px) {
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
+/* Responsive Stacking */
 @media (max-width: 992px) {
     .services-section {
         padding-block: 96px;
     }
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    
+    .services-bento-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .service-card.featured,
+    .service-card.highlight-wide {
+        grid-column: span 1;
+        padding: 32px 24px;
+    }
+    
+    .service-card.featured .service-desc {
+        font-size: 15px;
     }
 }
 
 @media (max-width: 600px) {
     .services-section {
         padding-block: 72px;
-    }
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
     }
     .service-card {
         padding: 24px;

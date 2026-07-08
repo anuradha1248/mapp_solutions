@@ -1,54 +1,36 @@
-import { ShieldCheck, Zap, Cpu, HelpCircle } from "lucide-react";
-import SectionHeading from "../SectionHeading/SectionHeading";
+import { Check } from "lucide-react";
 import "./WhyChooseUs.css";
 
-const ITEMS = [
-  {
-    icon: Zap,
-    title: "Agile Delivery",
-    desc: "Speed-to-market is critical. Our sprint-based delivery ensures consistent updates and transparent project tracking."
-  },
-  {
-    icon: ShieldCheck,
-    title: "Enterprise Security",
-    desc: "Enterprise-grade encryption, secure data transmission protocols, and strict industry compliance are built-in."
-  },
-  {
-    icon: Cpu,
-    title: "Modern Technologies",
-    desc: "We align architectures with premium technologies like React, Flutter, and Node.js for maximum speed and scale."
-  },
-  {
-    icon: HelpCircle,
-    title: "Long Term Support",
-    desc: "Our relationship doesn't end at launch. We provide round-the-clock maintenance, bug patches, and dev capacity."
-  }
-];
+const CAPABILITIES = ["Websites", "Mobile Apps", "ERP", "AI", "SaaS"];
 
 export default function WhyChooseUs() {
   return (
     <section className="why-choose-us" id="about">
       <div className="why-container">
-        <SectionHeading 
-          badge="Why Choose Us" 
-          title="Built for Enterprise Performance" 
-          subtitle="We partner with growing brands to build technical solutions that solve real business problems." 
-        />
-
-        <div className="why-grid">
-          {ITEMS.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="why-card">
-                <div className="why-icon-box">
-                  <Icon size={20} className="why-icon" />
-                </div>
-                <h3 className="why-title">{item.title}</h3>
-                <p className="why-desc">{item.desc}</p>
-              </div>
-            );
-          })}
+        
+        {/* Left Column: Who We Are */}
+        <div className="about-left">
+          <span className="about-badge">About Us</span>
+          <h2 className="about-title">Who We Are</h2>
+          <p className="about-subtitle">
+            We build software that helps businesses grow faster.
+          </p>
         </div>
+
+        {/* Right Column: Key Deliverables List */}
+        <div className="about-right">
+          <div className="capabilities-list">
+            {CAPABILITIES.map((cap, idx) => (
+              <div key={idx} className="capability-row">
+                <div className="check-box">
+                  <Check size={14} className="check-icon" />
+                </div>
+                <span className="capability-text">{cap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

@@ -12,23 +12,23 @@ const PROJECTS = [
   {
     title: "Apex Analytics Platform",
     category: "SaaS",
-    desc: "An enterprise-level SaaS dashboard displaying real-time business performance analytics.",
+    desc: "An enterprise-level SaaS dashboard displaying real-time business performance analytics, offering sub-second telemetry speeds and distributed database syncing.",
     image: apexImg,
-    tags: ["React", "Node.js", "AWS"]
+    tags: ["React", "Node.js", "AWS", "MongoDB"]
   },
   {
     title: "Aether Minimal Storefront",
     category: "Web",
-    desc: "A fast, headless web storefront with a headless checkout flow and premium layout.",
+    desc: "A fast, search-optimized headless web storefront featuring dynamic SSR routing, integrated CMS inventory synchronizations, and an optimized checkout layout.",
     image: aetherImg,
-    tags: ["React", "Laravel", "Docker"]
+    tags: ["React", "Next.js", "Laravel", "Docker"]
   },
   {
     title: "Velo Digital Wallet",
     category: "Mobile",
-    desc: "A premium mobile app wallet featuring secure cryptocurrency storage and transfers.",
+    desc: "A premium mobile app wallet featuring secure localized keychain storage, real-time crypto transfers, and clean biometric verification gates.",
     image: veloImg,
-    tags: ["Flutter", "Firebase", "Node.js"]
+    tags: ["Flutter", "Firebase", "Node.js", "Android"]
   }
 ];
 
@@ -43,9 +43,9 @@ export default function Portfolio() {
     <section className="portfolio-section" id="portfolio">
       <div className="portfolio-container">
         <SectionHeading 
-          badge="Portfolio" 
-          title="Selected Case Showcase" 
-          subtitle="A hand-picked selection of high-fidelity websites, custom software, and mobile apps built by our team." 
+          badge="Selected Work" 
+          title="Bespoke Software Delivery" 
+          subtitle="A detailed showcase of custom digital products engineered to solve complex operational challenges." 
         />
 
         {/* Filters */}
@@ -61,32 +61,48 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="portfolio-grid">
-          {filteredProjects.map((proj, idx) => (
-            <div key={idx} className="project-card">
-              <div className="project-image-box">
-                <img src={proj.image} alt={proj.title} className="project-image" />
-                <div className="project-hover-overlay">
-                  <Button variant="primary" className="view-project-btn">
-                    View Project
-                  </Button>
+        {/* Alternating Wide Row Layout */}
+        <div className="portfolio-list">
+          {filteredProjects.map((proj, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <div key={idx} className={`portfolio-item ${isEven ? "even" : "odd"}`}>
+                
+                {/* Project Image Wrapper (Left/Right alternating) */}
+                <div className="portfolio-item-preview">
+                  <div className="preview-image-wrap">
+                    <img src={proj.image} alt={proj.title} className="preview-img" />
+                    <div className="preview-overlay"></div>
+                  </div>
                 </div>
-                <div className="project-category-tag">{proj.category}</div>
-              </div>
-              <div className="project-info">
-                <h3 className="project-title">{proj.title}</h3>
-                <p className="project-desc">{proj.desc}</p>
-                <div className="project-tags">
-                  {proj.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="tech-tag">
-                      {tag}
-                    </span>
-                  ))}
+
+                {/* Project Content Wrapper */}
+                <div className="portfolio-item-info">
+                  <span className="item-category-tag">{proj.category}</span>
+                  <h3 className="item-title">{proj.title}</h3>
+                  <p className="item-desc">{proj.desc}</p>
+                  
+                  <div className="item-tags">
+                    {proj.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="item-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="item-cta-box">
+                    <Button variant="secondary" className="view-case-btn" onClick={() => {
+                      const target = document.querySelector("#contact");
+                      if (target) target.scrollIntoView({ behavior: "smooth" });
+                    }}>
+                      View Case Study
+                    </Button>
+                  </div>
                 </div>
+
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

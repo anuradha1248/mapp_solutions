@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import TrustedBy from "../components/TrustedBy/TrustedBy";
-import Stats from "../components/Stats/Stats";
-import Services from "../components/Services/Services";
-import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
-import Process from "../components/Process/Process";
 import Portfolio from "../components/Portfolio/Portfolio";
+import Services from "../components/Services/Services";
+import Process from "../components/Process/Process";
+import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
+import Stats from "../components/Stats/Stats";
 import CaseStudies from "../components/CaseStudies/CaseStudies";
 import TechStack from "../components/TechStack/TechStack";
 import Testimonials from "../components/Testimonials/Testimonials";
@@ -19,11 +19,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TrustedBy />
-      <Stats />
-      <Services />
-      <WhyChooseUs />
-      <Process />
       <Portfolio />
+      <Services />
+      <Process />
+      <WhyChooseUs />
+      <Stats />
       <CaseStudies />
       <TechStack />
       <Testimonials />
