@@ -1,0 +1,194 @@
+.portfolio-section {
+    background: #050505;
+    padding-block: 120px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.portfolio-container {
+    max-width: 1280px;
+    margin: auto;
+    width: 100%;
+    padding-inline: 24px;
+}
+
+/* Filters */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #CFCFCF;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #E11D2E;
+    color: #FFFFFF;
+    border-color: #E11D2E;
+}
+
+/* Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.project-card {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #E11D2E;
+}
+
+.project-image-box {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.06);
+}
+
+/* Hover Blur Overlay */
+.project-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.project-card:hover .project-hover-overlay {
+    opacity: 1;
+}
+
+.view-project-btn {
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.project-card:hover .view-project-btn {
+    transform: scale(1);
+}
+
+/* Category tag in top left */
+.project-category-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 3;
+}
+
+.project-info {
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #CFCFCF;
+    font-weight: 300;
+    margin-bottom: auto;
+}
+
+/* Tech Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.tech-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 992px) {
+    .portfolio-section {
+        padding-block: 96px;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-section {
+        padding-block: 72px;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .portfolio-filters {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+}
