@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Button from "../components/Button/Button";
@@ -11,13 +11,36 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    document.title = "Contact Us | Maheshwari App Solutions";
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    try {
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          budget: selectedBudget,
+          access_key: "62d0fb83-75e1-4c60-a292-91d14ad5db43" // Web3Forms access key placeholder
+        })
+      });
+    } catch (err) {
+      console.warn("Form submission failed, fallback message active.");
+    }
+
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    }, 3000);
+    }, 4000);
   };
 
   return (

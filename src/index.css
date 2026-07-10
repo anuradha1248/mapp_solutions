@@ -49,6 +49,12 @@ body{
     gap: 64px;
 }
 
+.responsive-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
 @media (max-width: 900px) {
     .responsive-grid-2col {
         grid-template-columns: 1fr;
@@ -57,5 +63,9 @@ body{
     .responsive-grid-split {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+    .responsive-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Button from "../components/Button/Button";
@@ -10,6 +10,10 @@ const CATEGORIES = ["All", "Web", "Mobile", "Custom Software"];
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Our Portfolio | Case Studies | Maheshwari App Solutions";
+  }, []);
 
   const filteredProjects = PROJECTS_DATA.filter((p) => {
     if (activeCategory === "All") return true;

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Process from "../components/Process/Process";
@@ -8,6 +9,10 @@ import { ShieldCheck, Users, Target, Rocket } from "lucide-react";
 
 export default function AboutPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "About Us | Maheshwari App Solutions";
+  }, []);
 
   return (
     <div className="about-page-wrap" style={{ background: "var(--bg-primary)" }}>

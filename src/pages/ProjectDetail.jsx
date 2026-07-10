@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Calendar, Tag, ShieldCheck } from "lucide-react";
 import Button from "../components/Button/Button";
@@ -9,6 +10,14 @@ export default function ProjectDetail() {
 
   // Find index of current project
   const currentIdx = PROJECTS_DATA.findIndex((p) => p.id === projectId);
+
+  const project = currentIdx !== -1 ? PROJECTS_DATA[currentIdx] : null;
+
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} Case Study | Maheshwari App Solutions`;
+    }
+  }, [project]);
 
   if (currentIdx === -1) {
     return (
@@ -22,7 +31,6 @@ export default function ProjectDetail() {
     );
   }
 
-  const project = PROJECTS_DATA[currentIdx];
   const nextProject = PROJECTS_DATA[(currentIdx + 1) % PROJECTS_DATA.length];
 
   return (

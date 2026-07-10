@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
 import Button from "../components/Button/Button";
@@ -6,6 +7,10 @@ import "../components/Services/Services.css";
 
 export default function ServicesPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Our Services | Maheshwari App Solutions";
+  }, []);
 
   return (
     <div className="services-page-wrap" style={{ background: "var(--bg-primary)" }}>

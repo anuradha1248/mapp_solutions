@@ -47,7 +47,9 @@ export default function Testimonials() {
                 <div className="testimonial-meta">
                   <h4 className="author-name">{t.author}</h4>
                   <p className="author-role">{t.role}</p>
-                  <p className="author-company">{t.company}</p>
+                  <span className="company-logo-badge" style={{ fontSize: "11px", color: "var(--accent)", background: "rgba(225, 29, 72, 0.05)", border: "1px solid rgba(225, 29, 72, 0.15)", padding: "2px 8px", borderRadius: "6px", display: "inline-block", marginTop: "4px", fontWeight: "600" }}>
+                    {t.company}
+                  </span>
                 </div>
               </div>
 

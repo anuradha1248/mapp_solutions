@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Hero from "../components/Hero/Hero";
 import TrustedBy from "../components/TrustedBy/TrustedBy";
@@ -10,6 +11,10 @@ import "../components/Portfolio/Portfolio.css";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Maheshwari App Solutions - Custom Software Development Agency";
+  }, []);
 
   return (
     <div className="home-page-wrap">

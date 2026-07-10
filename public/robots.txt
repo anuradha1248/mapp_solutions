@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anuradha1248.github.io/mapp_solutions/sitemap.xml

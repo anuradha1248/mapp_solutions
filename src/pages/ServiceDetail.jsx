@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { CheckCircle2, ChevronLeft } from "lucide-react";
 import Button from "../components/Button/Button";
@@ -11,6 +12,12 @@ export default function ServiceDetail() {
 
   // Find matching service
   const service = SERVICES_DATA.find((s) => s.id === serviceId);
+
+  useEffect(() => {
+    if (service) {
+      document.title = `${service.title} | Maheshwari App Solutions`;
+    }
+  }, [service]);
 
   // Fallback if service not found
   if (!service) {
