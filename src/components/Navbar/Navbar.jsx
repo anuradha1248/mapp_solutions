@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import Button from "../Button/Button";
 import logoImg from "../../assets/logo.png";
 import "./Navbar.css";
@@ -16,10 +15,8 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  const navRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,41 +33,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ── Close menu on outside click ───────────────────── */
-  useEffect(() => {
-    const handler = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setMenuOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  /* ── Lock body scroll when menu is open ───────────── */
-  useEffect(() => {
-    const checkResize = () => {
-      if (window.innerWidth > 900) {
-        setMenuOpen(false);
-      }
-    };
-    window.addEventListener("resize", checkResize);
-    
-    if (window.innerWidth <= 900) {
-      document.body.style.overflow = menuOpen ? "hidden" : "";
-    } else {
-      document.body.style.overflow = "";
-    }
-    
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("resize", checkResize);
-    };
-  }, [menuOpen]);
-
   const handleNavClick = (href) => {
     setActiveLink(href);
-    setMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
@@ -79,7 +43,6 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      ref={navRef}
       className={`navbar ${scrolled ? "navbar-scroll" : ""}`}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -100,12 +63,12 @@ export default function Navbar() {
         </a>
 
         {/* Links */}
-        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <div className="nav-links">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={activeLink === link.href ? "active" : ""}
+              className={`${activeLink === link.href ? "active" : ""} nav-link-${link.label.toLowerCase()}`}
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick(link.href);
@@ -126,16 +89,6 @@ export default function Navbar() {
             Get a Quote
           </Button>
         )}
-
-        {/* Hamburger Menu Button */}
-        <div
-          className="menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
-        </div>
       </div>
     </motion.nav>
   );
