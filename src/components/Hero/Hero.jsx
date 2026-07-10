@@ -1,20 +1,24 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import laptopScreenImg from "../../assets/fintech_preview.png";
 import mobileScreenImg from "../../assets/mobile_app_preview.png";
 import "./Hero.css";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   const handleScrollToContact = () => {
-    const target = document.querySelector("#contact");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate("/contact");
   };
 
   const handleScrollToPortfolio = () => {
-    const target = document.querySelector("#portfolio");
+    navigate("/portfolio");
+  };
+
+  const handleScrollToWhyUs = () => {
+    const target = document.querySelector(".why-choose-us");
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
@@ -90,6 +94,13 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Scroll indicator mouse */}
+      <div className="scroll-indicator" onClick={handleScrollToWhyUs}>
+        <div className="mouse">
+          <div className="wheel"></div>
+        </div>
       </div>
     </section>
   );

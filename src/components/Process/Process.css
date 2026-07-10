@@ -30,7 +30,7 @@
 
 .timeline-steps {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     position: relative;
     z-index: 2;
     gap: 16px;
@@ -74,6 +74,16 @@
 .step-content {
     text-align: center;
     padding-inline: 8px;
+}
+
+.step-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 6px;
+    opacity: 0.8;
 }
 
 .step-name {

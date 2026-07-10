@@ -37,10 +37,12 @@ export default function Home() {
               const Icon = srv.icon;
               return (
                 <div key={srv.id} className="service-card secondary">
-                  <div className="service-icon-box">
-                    <Icon size={22} className="service-icon" />
+                  <div className="service-card-header">
+                    <div className="service-icon-box">
+                      <Icon size={20} className="service-icon" />
+                    </div>
+                    <h3 className="service-title">{srv.title}</h3>
                   </div>
-                  <h3 className="service-title">{srv.title}</h3>
                   <p className="service-desc">{srv.shortDesc}</p>
                   <Link to={`/services/${srv.id}`} className="service-learn-more">
                     Learn More <span className="arrow">→</span>

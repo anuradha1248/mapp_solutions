@@ -30,10 +30,12 @@ export default function ServicesPage() {
               return (
                 <div key={srv.id} className="service-card secondary" style={{ minHeight: "320px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
-                    <div className="service-icon-box">
-                      <Icon size={22} className="service-icon" />
+                    <div className="service-card-header">
+                      <div className="service-icon-box">
+                        <Icon size={20} className="service-icon" />
+                      </div>
+                      <h3 className="service-title">{srv.title}</h3>
                     </div>
-                    <h3 className="service-title" style={{ fontSize: "20px", marginBlock: "16px 12px" }}>{srv.title}</h3>
                     <p className="service-desc" style={{ fontSize: "14px", lineHeight: "1.6", color: "var(--text-body)", marginBottom: "20px" }}>
                       {srv.longDesc.substring(0, 140)}...
                     </p>

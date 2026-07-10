@@ -119,6 +119,30 @@
     transform: translateX(4px);
 }
 
+/* Card header inline elements */
+.service-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.service-card-header .service-icon-box {
+    margin-bottom: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.service-card-header .service-title {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
 /* Responsive Stacking */
 @media (max-width: 992px) {
     .services-section {
