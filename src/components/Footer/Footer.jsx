@@ -1,23 +1,17 @@
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/logo.png";
 import "./Footer.css";
 
 export default function Footer() {
-  const handleScrollToSection = (id) => {
-    const target = document.querySelector(id);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className="footer-section">
       <div className="footer-container">
         
         {/* Brand Info Block */}
         <div className="footer-brand-column">
-          <a href="#home" className="footer-logo" onClick={(e) => { e.preventDefault(); handleScrollToSection("#home"); }}>
+          <Link to="/" className="footer-logo">
             <img src={logoImg} alt="Maheshwari App Solutions" />
-          </a>
+          </Link>
           <p className="footer-brand-desc">
             Architecting modern digital solutions for enterprise businesses. Delivering speed, security, and performance.
           </p>
@@ -28,28 +22,29 @@ export default function Footer() {
           <div className="footer-links-column">
             <h4>Company</h4>
             <ul>
-              <li><a href="#about" onClick={(e) => { e.preventDefault(); handleScrollToSection("#about"); }}>About Us</a></li>
-              <li><a href="#process" onClick={(e) => { e.preventDefault(); handleScrollToSection("#process"); }}>Our Process</a></li>
-              <li><a href="#about" onClick={(e) => { e.preventDefault(); handleScrollToSection("#about"); }}>Why Us</a></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/about">Our Process</Link></li>
+              <li><Link to="/about">Why Us</Link></li>
             </ul>
           </div>
 
           <div className="footer-links-column">
             <h4>Services</h4>
             <ul>
-              <li><a href="#services" onClick={(e) => { e.preventDefault(); handleScrollToSection("#services"); }}>Web Development</a></li>
-              <li><a href="#services" onClick={(e) => { e.preventDefault(); handleScrollToSection("#services"); }}>Mobile Applications</a></li>
-              <li><a href="#services" onClick={(e) => { e.preventDefault(); handleScrollToSection("#services"); }}>Custom Software</a></li>
-              <li><a href="#services" onClick={(e) => { e.preventDefault(); handleScrollToSection("#services"); }}>AI Automations</a></li>
+              <li><Link to="/services/web-development">Web Development</Link></li>
+              <li><Link to="/services/mobile-app-development">Mobile Applications</Link></li>
+              <li><Link to="/services/custom-software">Custom Software</Link></li>
+              <li><Link to="/services/ai-automation">AI Automations</Link></li>
             </ul>
           </div>
 
           <div className="footer-links-column">
             <h4>Portfolio</h4>
             <ul>
-              <li><a href="#portfolio" onClick={(e) => { e.preventDefault(); handleScrollToSection("#portfolio"); }}>Apex Analytics</a></li>
-              <li><a href="#portfolio" onClick={(e) => { e.preventDefault(); handleScrollToSection("#portfolio"); }}>Aether Storefront</a></li>
-              <li><a href="#portfolio" onClick={(e) => { e.preventDefault(); handleScrollToSection("#portfolio"); }}>Velo Wallet</a></li>
+              <li><Link to="/portfolio/restaurant-tablet">Restaurant Tablet</Link></li>
+              <li><Link to="/portfolio/cleaning-app">Cleaning App</Link></li>
+              <li><Link to="/portfolio/beauty-store">Beauty Store</Link></li>
+              <li><Link to="/portfolio/hospital-management">Hospital System</Link></li>
             </ul>
           </div>
 
@@ -58,7 +53,7 @@ export default function Footer() {
             <ul>
               <li><a href="mailto:Maheshwariappsolutions@gmail.com">Email Support</a></li>
               <li><a href="tel:+919785460950">Direct Line</a></li>
-              <li><a href="#contact" onClick={(e) => { e.preventDefault(); handleScrollToSection("#contact"); }}>Request Quote</a></li>
+              <li><Link to="/contact">Request Quote</Link></li>
             </ul>
           </div>
         </div>

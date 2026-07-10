@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import logoImg from "../../assets/logo.png";
 import "./Navbar.css";
 
 const NAV_LINKS = [
-  { label: "Home",      href: "#home" },
-  { label: "Services",  href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Process",   href: "#process" },
-  { label: "About",     href: "#about" },
-  { label: "Contact",   href: "#contact" },
+  { label: "Home",      path: "/" },
+  { label: "Services",  path: "/services" },
+  { label: "Portfolio", path: "/portfolio" },
+  { label: "About",     path: "/about" },
+  { label: "Contact",   path: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,14 +34,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (href) => {
-    setActiveLink(href);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <motion.nav
       className={`navbar ${scrolled ? "navbar-scroll" : ""}`}
@@ -50,32 +43,24 @@ export default function Navbar() {
     >
       <div className="container">
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="logo"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            setActiveLink("");
-          }}
+          onClick={() => setActiveLink("")}
         >
           <img src={logoImg} alt="Maheshwari App Solutions" />
-        </a>
+        </Link>
 
         {/* Links */}
         <div className="nav-links">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`${activeLink === link.href ? "active" : ""} nav-link-${link.label.toLowerCase()}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) => `${isActive ? "active" : ""} nav-link-${link.label.toLowerCase()}`}
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
@@ -84,7 +69,7 @@ export default function Navbar() {
           <Button
             variant="primary"
             className="quote-btn"
-            onClick={() => handleNavClick("#contact")}
+            onClick={() => navigate("/contact")}
           >
             Get a Quote
           </Button>
