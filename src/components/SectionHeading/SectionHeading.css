@@ -7,7 +7,7 @@
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: #E11D2E;
+    color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 16px;
     display: inline-block;
@@ -16,7 +16,7 @@
 .section-title {
     font-size: 40px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--text-heading);
     line-height: 1.25;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
@@ -24,7 +24,7 @@
 
 .section-subtitle {
     font-size: 16px;
-    color: #CFCFCF;
+    color: var(--text-muted);
     max-width: 620px;
     margin: 0 auto;
     line-height: 1.6;

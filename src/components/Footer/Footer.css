@@ -1,7 +1,7 @@
 .footer-section {
-    background: #050505;
+    background: var(--bg-primary);
     padding-top: 120px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-container {
@@ -29,7 +29,7 @@
 .footer-brand-desc {
     font-size: 15px;
     line-height: 1.6;
-    color: #CFCFCF;
+    color: var(--text-body);
     max-width: 320px;
     font-weight: 300;
 }
@@ -46,7 +46,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text-muted);
     margin-bottom: 24px;
 }
 
@@ -61,21 +61,21 @@
 
 .footer-links-column a {
     font-size: 14px;
-    color: #CFCFCF;
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 300;
 }
 
 .footer-links-column a:hover {
-    color: #E11D2E;
+    color: var(--accent);
 }
 
 /* Bottom Bar */
 .footer-bottom-bar {
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--border-color);
     padding-block: 40px;
-    background: #050505;
+    background: var(--bg-primary);
 }
 
 .footer-bottom-container {
@@ -90,7 +90,7 @@
 
 .footer-copyright {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text-muted);
     font-weight: 300;
 }
 
@@ -101,14 +101,14 @@
 
 .footer-socials a {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
 }
 
 .footer-socials a:hover {
-    color: #E11D2E;
+    color: var(--accent);
 }
 
 @media (max-width: 992px) {

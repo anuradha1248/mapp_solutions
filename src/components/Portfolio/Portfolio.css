@@ -1,7 +1,7 @@
 .portfolio-section {
-    background: #050505;
+    background: var(--bg-primary);
     padding-block: 120px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .portfolio-container {
@@ -20,9 +20,9 @@
 }
 
 .filter-btn {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: #CFCFCF;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-body);
     padding: 10px 24px;
     border-radius: 12px;
     font-size: 15px;
@@ -33,9 +33,9 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: #E11D2E;
+    background: var(--accent);
     color: #FFFFFF;
-    border-color: #E11D2E;
+    border-color: var(--accent);
 }
 
 /* Alternating Wide Row List */
@@ -67,9 +67,9 @@
 }
 
 .preview-image-wrap {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
     aspect-ratio: 16 / 10;
@@ -106,7 +106,7 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #E11D2E;
+    color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 12px;
     display: inline-block;
@@ -139,11 +139,11 @@
 .item-tag {
     font-size: 12px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-body);
+    background: rgba(255, 255, 255, 0.03);
     padding: 4px 10px;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
 }
 
 .item-cta-box {

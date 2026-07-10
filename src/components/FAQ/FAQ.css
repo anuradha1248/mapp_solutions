@@ -1,7 +1,7 @@
 .faq-section {
-    background: #050505;
+    background: var(--bg-primary);
     padding-block: 120px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .faq-container {
@@ -20,16 +20,16 @@
 }
 
 .faq-item {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .faq-item:hover,
 .faq-item.open {
-    border-color: #E11D2E;
+    border-color: var(--accent);
 }
 
 .faq-question-btn {
@@ -44,20 +44,20 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: var(--text-heading);
     gap: 24px;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .faq-icon {
-    color: #CFCFCF;
+    color: var(--text-muted);
     flex-shrink: 0;
     transition: color 0.3s ease;
 }
 
 .faq-item:hover .faq-icon,
 .faq-item.open .faq-icon {
-    color: #E11D2E;
+    color: var(--accent);
 }
 
 .faq-answer-wrap {
@@ -72,14 +72,14 @@
 
 .faq-answer {
     padding: 0 32px 24px 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--border-color);
     padding-top: 16px;
 }
 
 .faq-answer p {
     font-size: 15px;
     line-height: 1.6;
-    color: #CFCFCF;
+    color: var(--text-body);
     font-weight: 300;
 }
 

@@ -18,7 +18,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const navRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   /* ── Scroll detection ──────────────────────────────── */
   useEffect(() => {
@@ -108,13 +117,15 @@ export default function Navbar() {
         </div>
 
         {/* CTA Button - Reusable primary button styled specifically for header */}
-        <Button
-          variant="primary"
-          className="quote-btn"
-          onClick={() => handleNavClick("#contact")}
-        >
-          Get a Quote
-        </Button>
+        {!isMobile && (
+          <Button
+            variant="primary"
+            className="quote-btn"
+            onClick={() => handleNavClick("#contact")}
+          >
+            Get a Quote
+          </Button>
+        )}
 
         {/* Hamburger Menu Button */}
         <div
@@ -123,7 +134,7 @@ export default function Navbar() {
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={28} color="white" /> : <Menu size={28} color="white" />}
+          {menuOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
         </div>
       </div>
     </motion.nav>

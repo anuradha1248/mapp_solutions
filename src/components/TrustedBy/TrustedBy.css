@@ -1,7 +1,7 @@
 .trusted-by {
-    background: #050505;
+    background: var(--bg-secondary);
     padding-block: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-color);
     overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text-muted);
     margin-bottom: 24px;
     text-align: center;
     font-weight: 600;
