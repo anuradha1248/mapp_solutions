@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import Button from "../Button/Button";
 import "./Contact.css";
@@ -45,13 +45,6 @@ export default function Contact() {
               <div>
                 <h4>Call Us</h4>
                 <p>+91 9785460950</p>
-              </div>
-            </div>
-            <div className="details-item">
-              <MapPin size={18} className="details-icon" />
-              <div>
-                <h4>Our Address</h4>
-                <p>Suite 400, 100 Pine St, San Francisco, CA 94111</p>
               </div>
             </div>
           </div>
