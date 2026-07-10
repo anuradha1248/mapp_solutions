@@ -21,20 +21,33 @@ export default function AboutPage() {
             subtitle="We are a premium software development agency engineering custom digital platforms, mobile apps, and enterprise solutions."
           />
           
-          <div style={{ maxWidth: "800px", margin: "40px auto 0", textAlign: "center" }}>
-            <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--text-body)", fontWeight: "300", marginBottom: "20px" }}>
-              Founded with the goal of bridging high-fidelity design with robust backend engineering, Maheshwari App Solutions delivers software products for fast-growing companies and enterprise businesses. 
-            </p>
-            <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--text-body)", fontWeight: "300" }}>
-              We specialize in performant web stacks, cross-platform Android/iOS applications, and custom machine learning pipelines. We partner directly with our clients to audit existing systems, design intuitive prototypes, and ship clean code optimized for latency and speed.
-            </p>
+          <div style={{ marginTop: "48px", alignItems: "center" }} className="responsive-grid-2col">
+            {/* Image/Visual graphic card */}
+            <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "20px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", minHeight: "280px" }}>
+              <div className="red-glow" style={{ width: "150px", height: "150px", background: "radial-gradient(circle, rgba(225, 29, 72, 0.08) 0%, transparent 70%)", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}></div>
+              <div style={{ padding: "32px", textAlign: "center", zIndex: 2 }}>
+                <div style={{ fontSize: "56px", marginBottom: "12px" }}>🚀</div>
+                <h4 style={{ color: "var(--text-heading)", fontSize: "18px", fontWeight: "700" }}>Maheshwari App Solutions</h4>
+                <p style={{ color: "var(--text-muted)", fontSize: "13px", marginTop: "4px" }}>Custom Engineering Agency</p>
+              </div>
+            </div>
+
+            {/* Text description */}
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--text-body)", fontWeight: "300", marginBottom: "20px" }}>
+                Founded with the goal of bridging high-fidelity design with robust backend engineering, Maheshwari App Solutions delivers software products for fast-growing companies and enterprise businesses. 
+              </p>
+              <p style={{ fontSize: "16px", lineHeight: "1.8", color: "var(--text-body)", fontWeight: "300", margin: 0 }}>
+                We specialize in performant web stacks, cross-platform Android/iOS applications, and custom machine learning pipelines. We partner directly with our clients to audit existing systems, design intuitive prototypes, and ship clean code optimized for latency and speed.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 2. Mission & Vision */}
       <section style={{ paddingBlock: "80px", background: "var(--bg-primary)" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", paddingInline: "24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }} className="form-group-row">
+        <div style={{ maxWidth: "1000px", margin: "0 auto", paddingInline: "24px" }} className="responsive-grid-2col">
           <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "40px", display: "flex", flexDirection: "column", gap: "20px" }}>
             <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(225, 29, 72, 0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Target size={24} style={{ color: "var(--accent)" }} />
@@ -72,7 +85,7 @@ export default function AboutPage() {
             subtitle="Meet our dedicated team of software architects, product designers, and security engineers."
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "32px", marginTop: "48px" }} className="testimonials-grid">
+          <div className="testimonials-grid" style={{ marginTop: "48px" }}>
             <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "32px", textAlign: "center" }}>
               <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "rgba(225, 29, 72, 0.08)", margin: "0 auto 20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Users size={32} style={{ color: "var(--accent)" }} />

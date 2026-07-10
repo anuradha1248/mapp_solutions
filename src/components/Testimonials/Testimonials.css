@@ -100,7 +100,7 @@
 
 @media (max-width: 992px) {
     .testimonials-section {
-        padding-block: 96px;
+        padding-block: 80px;
     }
     .testimonials-grid {
         grid-template-columns: 1fr;
@@ -110,7 +110,7 @@
 
 @media (max-width: 600px) {
     .testimonials-section {
-        padding-block: 72px;
+        padding-block: 48px;
     }
     .testimonial-card {
         padding: 32px 24px;

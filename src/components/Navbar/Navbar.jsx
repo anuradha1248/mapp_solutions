@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import Button from "../Button/Button";
 import logoImg from "../../assets/logo.png";
 import "./Navbar.css";
@@ -15,13 +16,17 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900);
+      const mobileState = window.innerWidth <= 900;
+      setIsMobile(mobileState);
+      if (!mobileState) {
+        setMenuOpen(false); // Auto close drawer when resizing to desktop
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -36,7 +41,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`navbar ${scrolled ? "navbar-scroll" : ""}`}
+      className={`navbar ${scrolled || menuOpen ? "navbar-scroll" : ""}`}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -46,9 +51,9 @@ export default function Navbar() {
         <Link
           to="/"
           className="logo"
-          onClick={() => setActiveLink("")}
+          onClick={() => setMenuOpen(false)}
         >
-          <img src={logoImg} alt="Maheshwari App Solutions" />
+          <img src={logoImg} alt="Maheshwari App Solutions" width="140" height="40" />
         </Link>
 
         {/* Links */}
@@ -64,7 +69,18 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button - Reusable primary button styled specifically for header */}
+        {/* Hamburger Menu Toggle Button */}
+        {isMobile && (
+          <button 
+            className="menu-btn" 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? <X size={24} style={{ color: "var(--accent)" }} /> : <Menu size={24} style={{ color: "#FFFFFF" }} />}
+          </button>
+        )}
+
+        {/* CTA Button */}
         {!isMobile && (
           <Button
             variant="primary"
@@ -75,6 +91,24 @@ export default function Navbar() {
           </Button>
         )}
       </div>
+
+      {/* Mobile Drawer Overlay */}
+      {isMobile && (
+        <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
+          <div className="mobile-nav-links">
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) => isActive ? "active" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
     </motion.nav>
   );
 }

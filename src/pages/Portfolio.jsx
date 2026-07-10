@@ -60,7 +60,7 @@ export default function PortfolioPage() {
                   {/* Project Image Wrapper (Left/Right alternating) */}
                   <div className="portfolio-item-preview">
                     <div className="preview-image-wrap">
-                      <img src={proj.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"} alt={proj.title} className="preview-img" />
+                      <img src={proj.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"} alt={proj.title} className="preview-img" loading="lazy" />
                       <div className="preview-overlay"></div>
                     </div>
                   </div>

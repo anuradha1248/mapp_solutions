@@ -85,13 +85,13 @@
 
 @media (max-width: 992px) {
     .faq-section {
-        padding-block: 96px;
+        padding-block: 80px;
     }
 }
 
 @media (max-width: 600px) {
     .faq-section {
-        padding-block: 72px;
+        padding-block: 48px;
     }
     .faq-question-btn {
         padding: 20px 24px;

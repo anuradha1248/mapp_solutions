@@ -38,27 +38,28 @@
     border-color: var(--accent);
 }
 
-/* Alternating Wide Row List */
+/* Grid Layout */
 .portfolio-list {
-    display: flex;
-    flex-direction: column;
-    gap: 96px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
 }
 
 .portfolio-item {
-    display: grid;
-    grid-template-columns: 1.25fr 0.95fr;
-    gap: 64px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Swapping order for odd rows so image displays on the right on desktop */
-.portfolio-item.odd .portfolio-item-preview {
-    order: 2;
-}
-
-.portfolio-item.odd .portfolio-item-info {
-    order: 1;
+.portfolio-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg), var(--glow-red);
 }
 
 /* Image Mockup Preview */
@@ -67,9 +68,8 @@
 }
 
 .preview-image-wrap {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    background: #0d0d0d;
+    border-bottom: 1px solid var(--border-color);
     overflow: hidden;
     position: relative;
     aspect-ratio: 16 / 10;
@@ -96,16 +96,18 @@
 
 /* Text Info block */
 .portfolio-item-info {
+    padding: 28px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-items: flex-start;
     text-align: left;
 }
 
 .item-category-tag {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -113,20 +115,21 @@
 }
 
 .item-title {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
     color: #FFFFFF;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 
 .item-desc {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.6;
     color: #CFCFCF;
     font-weight: 300;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
 
 /* Tech Tags */
@@ -134,63 +137,70 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 24px;
 }
 
 .item-tag {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     color: var(--text-body);
     background: rgba(255, 255, 255, 0.03);
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
 }
 
 .item-cta-box {
-    margin-top: 32px;
+    width: 100%;
+    margin-top: auto;
 }
 
 .view-case-btn {
-    padding: 10px 20px !important;
-    font-size: 14px !important;
+    width: 100%;
+    justify-content: center;
 }
 
-/* Responsive Stacking */
-@media (max-width: 992px) {
+/* Responsive Constraints */
+@media (max-width: 1024px) {
     .portfolio-list {
-        gap: 64px;
-    }
-    
-    .portfolio-item {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    
-    /* Reset order so image always sits on top of text on mobile/tablet */
-    .portfolio-item.odd .portfolio-item-preview {
-        order: 1;
-    }
-
-    .portfolio-item.odd .portfolio-item-info {
-        order: 2;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
     
     .item-title {
-        font-size: 24px;
-    }
-    
-    .item-cta-box {
-        margin-top: 24px;
-        width: 100%;
+        font-size: 18px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .portfolio-section {
         padding-block: 72px;
     }
+    
+    .portfolio-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .portfolio-filters {
         flex-wrap: wrap;
         gap: 8px;
+        margin-bottom: 36px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-container {
+        padding-inline: 16px;
+    }
+    
+    .portfolio-filters {
+        justify-content: flex-start;
     }
 }

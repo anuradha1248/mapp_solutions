@@ -89,12 +89,12 @@
 
     .container {
         height: 64px;
-        padding-inline: 12px;
+        padding-inline: 16px;
         width: 100%;
     }
 
     .logo img {
-        height: 36px;
+        height: 34px;
     }
 
     .quote-btn {
@@ -102,30 +102,69 @@
     }
 
     .menu-btn {
-        display: none !important;
+        display: block !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        z-index: 1001;
+        outline: none;
     }
 
     .nav-links {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 14px !important;
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        background: transparent !important;
-        padding: 0 !important;
-        overflow: visible !important;
-        align-items: center !important;
-        justify-content: flex-end !important;
+        display: none !important; /* Hide desktop links on mobile */
     }
 
-    .nav-links a {
-        font-size: 13px !important;
-        font-weight: 600 !important;
+    /* Mobile Drawer */
+    .mobile-drawer {
+        position: fixed;
+        top: 64px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 64px);
+        background: rgba(17, 17, 17, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid var(--border-color);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+        padding: 40px 24px;
     }
 
-    .nav-link-home,
-    .nav-link-process {
-        display: none !important;
+    .mobile-drawer.open {
+        right: 0;
+    }
+
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        transition: color 0.3s;
+        padding-block: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+        color: var(--accent);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-inline: 12px;
+    }
+    .logo img {
+        height: 30px;
+    }
+    .mobile-drawer {
+        width: 240px;
+        padding: 32px 20px;
     }
 }

@@ -35,3 +35,27 @@ body{
   font-family:'Plus Jakarta Sans', sans-serif;
   overflow-x:hidden;
 }
+
+/* Responsive Grid Utilities */
+.responsive-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.responsive-grid-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
+}
+
+@media (max-width: 900px) {
+    .responsive-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .responsive-grid-split {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}

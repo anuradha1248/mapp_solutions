@@ -73,7 +73,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* 2. Challenge & Solution Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", marginBottom: "56px" }} className="form-group-row">
+          <div className="responsive-grid-2col" style={{ marginBottom: "56px" }}>
             <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "16px", padding: "32px" }}>
               <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-heading)", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
                 <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent)" }}></span>
@@ -111,7 +111,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* 4. Tech stack list & features */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", marginBottom: "64px" }} className="form-group-row">
+          <div className="responsive-grid-2col" style={{ marginBottom: "64px" }}>
             <div>
               <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-heading)", marginBottom: "20px" }}>Integrated Features</h3>
               <ul style={{ paddingLeft: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>

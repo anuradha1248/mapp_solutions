@@ -1,6 +1,8 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { CheckCircle2, ChevronLeft } from "lucide-react";
 import Button from "../components/Button/Button";
+import Process from "../components/Process/Process";
+import FAQ from "../components/FAQ/FAQ";
 import { SERVICES_DATA } from "../data/siteData";
 
 export default function ServiceDetail() {
@@ -86,6 +88,12 @@ export default function ServiceDetail() {
 
         </div>
       </section>
+
+      {/* Development Process */}
+      <Process />
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* CTA Box */}
       <section style={{ paddingBlock: "80px", background: "var(--bg-secondary)", borderTop: "1px solid var(--border-color)" }}>

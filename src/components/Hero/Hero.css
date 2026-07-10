@@ -73,7 +73,7 @@
 }
 
 .hero-left h1 {
-    font-size: 48px;
+    font-size: clamp(2.2rem, 5.5vw, 4.5rem);
     line-height: 1.25;
     font-weight: 700;
     margin: 24px 0;
@@ -88,7 +88,7 @@
 
 .hero-left p {
     color: var(--text-body);
-    font-size: 16px;
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
     line-height: 1.75;
     max-width: 560px;
     font-weight: 300;
@@ -311,6 +311,25 @@
         width: 96px;
         right: 8px;
         bottom: -8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-left h1 {
+        font-size: 28px !important;
+    }
+    .hero-container {
+        padding-inline: 16px;
+        gap: 32px;
+    }
+    .hero-right {
+        max-width: 250px;
+        height: 240px;
+    }
+    .mobile-wrapper {
+        width: 80px;
+        right: 4px;
+        bottom: -4px;
     }
 }
 

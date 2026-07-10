@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Brand Info Block */}
         <div className="footer-brand-column">
           <Link to="/" className="footer-logo">
-            <img src={logoImg} alt="Maheshwari App Solutions" />
+            <img src={logoImg} alt="Maheshwari App Solutions" width="140" height="40" loading="lazy" />
           </Link>
           <p className="footer-brand-desc">
             Architecting modern digital solutions for enterprise businesses. Delivering speed, security, and performance.

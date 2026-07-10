@@ -108,7 +108,7 @@
 /* Responsive (Tablet/Mobile -> Vertical Layout) */
 @media (max-width: 1150px) {
     .process-section {
-        padding-block: 96px;
+        padding-block: 80px;
     }
     
     .timeline-line {
@@ -157,6 +157,6 @@
 
 @media (max-width: 768px) {
     .process-section {
-        padding-block: 72px;
+        padding-block: 48px;
     }
 }

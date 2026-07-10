@@ -1,7 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import Hero from "../components/Hero/Hero";
 import TrustedBy from "../components/TrustedBy/TrustedBy";
-import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 import TechStack from "../components/TechStack/TechStack";
 import Button from "../components/Button/Button";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
@@ -20,10 +19,7 @@ export default function Home() {
       {/* 2. Social Proof / Trusted By */}
       <TrustedBy />
 
-      {/* 3. Why Choose Us */}
-      <WhyChooseUs />
-
-      {/* 4. Featured Services (4 cards) */}
+      {/* 3. Featured Services (4 cards) */}
       <section className="services-section">
         <div className="services-container">
           <SectionHeading
@@ -32,7 +28,7 @@ export default function Home() {
             subtitle="We build high-performance software, mobile applications, and AI pipelines to automate your operations and scale your growth."
           />
 
-          <div className="services-bento-grid">
+          <div className="featured-services-grid">
             {SERVICES_DATA.slice(0, 4).map((srv) => {
               const Icon = srv.icon;
               return (
@@ -60,7 +56,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Featured Projects (3 cards) */}
+      {/* 4. Featured Projects (3 cards) */}
       <section className="portfolio-section">
         <div className="portfolio-container">
           <SectionHeading
@@ -76,7 +72,7 @@ export default function Home() {
                 <div key={proj.id} className={`portfolio-item ${isEven ? "even" : "odd"}`}>
                   <div className="portfolio-item-preview">
                     <div className="preview-image-wrap">
-                      <img src={proj.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"} alt={proj.title} className="preview-img" />
+                      <img src={proj.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"} alt={proj.title} className="preview-img" loading="lazy" />
                       <div className="preview-overlay"></div>
                     </div>
                   </div>
@@ -113,10 +109,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Technologies Grid */}
+      {/* 5. Technologies Grid */}
       <TechStack />
 
-      {/* 7. Unified CTA section */}
+      {/* 6. Unified CTA section */}
       <section className="cta-banner-section" style={{ paddingBlock: "100px", position: "relative", overflow: "hidden", background: "var(--bg-secondary)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
         <div className="red-glow" style={{ right: "auto", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(225, 29, 72, 0.08) 0%, transparent 70%)" }}></div>
         <div style={{ maxWidth: "800px", margin: "0 auto", paddingInline: "24px", textAlign: "center", position: "relative", zIndex: 2 }}>
