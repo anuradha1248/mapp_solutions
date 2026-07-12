@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/Layout/Layout";
+import WhatsAppChat from "./components/WhatsAppChat/WhatsAppChat";
 import "./styles/premium-theme.css";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -47,6 +48,7 @@ function App() {
             </Routes>
           </Suspense>
         </Layout>
+        <WhatsAppChat />
       </div>
     </Router>
   );

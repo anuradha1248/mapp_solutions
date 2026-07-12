@@ -1,3 +1,4 @@
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -163,6 +164,7 @@
 }
 .hero-right {
   position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,6 +178,23 @@
   border-right: 0;
   border-bottom: 0;
   border-radius: 330px 0 0;
+}
+.hero-right::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 16px -2% 2px 4%;
+  border-radius: 24px 0 0 24px;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(7, 7, 7, 0.76),
+      rgba(7, 7, 7, 0.23) 65%,
+      rgba(227, 30, 37, 0.12)
+    ),
+    url("../../assets/hero-studio.png") center / cover no-repeat;
+  filter: saturate(0.55) contrast(1.08) brightness(0.72);
 }
 .laptop-wrapper {
   position: relative;
@@ -407,3 +426,5 @@
     transition: none !important;
   }
 }
+
+

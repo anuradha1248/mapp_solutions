@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main style={{ minHeight: "calc(100vh - 300px)", paddingTop: "64px" }}>
+      <main style={{ minHeight: "calc(100vh - 300px)", paddingTop: "76px" }}>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
