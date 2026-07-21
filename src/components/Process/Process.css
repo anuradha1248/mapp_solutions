@@ -63,7 +63,7 @@
 
 .timeline-step:hover .step-dot {
     border-color: var(--accent);
-    box-shadow: 0 0 15px rgba(225, 29, 72, 0.25);
+    box-shadow: 0 0 15px rgba(255, 126, 41, 0.35);
     background: var(--accent);
 }
 
@@ -95,7 +95,7 @@
 }
 
 .timeline-step:hover .step-name {
-    color: #E11D2E;
+    color: var(--accent);
 }
 
 .step-desc {

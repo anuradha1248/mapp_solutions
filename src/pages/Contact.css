@@ -39,10 +39,11 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: #e31e25;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.21em;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 .contact-eyebrow::before {
   content: "";
@@ -53,15 +54,15 @@
 .contact-hero h1 {
   max-width: 770px;
   margin: 20px 0 16px;
-  color: #f4f3f1;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(47px, 5.8vw, 81px);
-  font-weight: 900;
-  line-height: 0.94;
-  letter-spacing: 0.018em;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(40px, 5.2vw, 68px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 .contact-hero h1 span {
-  color: #e31e25;
+  color: var(--accent);
 }
 .contact-hero p {
   max-width: 560px;
@@ -85,11 +86,12 @@
 .contact-info-panel h2,
 .contact-form-title h2 {
   margin: 17px 0 15px;
-  color: #f4f3f1;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(34px, 3.3vw, 48px);
-  line-height: 0.97;
-  letter-spacing: 0.018em;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(28px, 3.3vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 .contact-info-panel > p {
   max-width: 380px;
@@ -131,8 +133,8 @@
   flex: 0 0 auto;
   place-items: center;
   border-radius: 50%;
-  color: #e31e25;
-  background: rgba(227, 30, 37, 0.08);
+  color: var(--accent);
+  background: rgba(255, 126, 41, 0.12);
 }
 .contact-direct-item b {
   display: grid;
@@ -164,7 +166,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
 .contact-form-title > span {
-  color: #e31e25;
+  color: var(--accent);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.17em;
@@ -217,8 +219,8 @@
 }
 .premium-contact-form input:focus,
 .premium-contact-form textarea:focus {
-  border-color: rgba(227, 30, 37, 0.8);
-  box-shadow: 0 0 0 3px rgba(227, 30, 37, 0.09);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 126, 41, 0.2);
 }
 .premium-contact-form fieldset {
   margin: 0;
@@ -246,9 +248,9 @@
 }
 .contact-budget-options button:hover,
 .contact-budget-options button.active {
-  border-color: #e31e25;
+  border-color: var(--accent);
   color: #fff;
-  background: rgba(227, 30, 37, 0.1);
+  background: rgba(255, 126, 41, 0.15);
 }
 .contact-submit {
   width: 100%;
@@ -273,13 +275,14 @@
   text-align: center;
 }
 .contact-success svg {
-  color: #e31e25;
+  color: var(--accent);
 }
 .contact-success h3 {
   margin: 0;
-  font-family: Impact, Haettenschweiler, sans-serif;
-  font-size: 31px;
-  letter-spacing: 0.025em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
 }
 .contact-success p {
   max-width: 390px;

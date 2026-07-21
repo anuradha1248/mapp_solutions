@@ -52,7 +52,7 @@
 }
 
 .tech-card:hover .tech-logo {
-    background: rgba(225, 29, 72, 0.1);
+    background: rgba(255, 126, 41, 0.12);
     border-color: var(--accent);
     color: var(--accent);
 }

@@ -5,14 +5,14 @@
 */
 
 .portfolio-reference-theme {
-  --portfolio-black: #050505;
-  --portfolio-panel: #0c0c0d;
-  --portfolio-panel-soft: #131315;
-  --portfolio-line: rgba(255, 255, 255, 0.14);
-  --portfolio-text: #f7f7f5;
-  --portfolio-muted: #b8b8b8;
-  --portfolio-red: #ee1c25;
-  --portfolio-red-dark: #b81018;
+  --portfolio-black: #06090e;
+  --portfolio-panel: #0b0f19;
+  --portfolio-panel-soft: #121824;
+  --portfolio-line: rgba(255, 255, 255, 0.08);
+  --portfolio-text: #ffffff;
+  --portfolio-muted: #cbd5e1;
+  --portfolio-red: #76b900;
+  --portfolio-red-dark: #10b981;
   color: var(--portfolio-text);
   background: var(--portfolio-black);
   overflow: hidden;
@@ -114,11 +114,11 @@
 }
 
 .portfolio-brand-name {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 21px;
-  font-weight: 900;
-  line-height: 0.85;
-  letter-spacing: 0.045em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
 }
 
 .portfolio-brand-name small {
@@ -217,14 +217,11 @@
 .case-not-found h1 {
   margin: 19px 0 0;
   color: var(--portfolio-text);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black",
-    sans-serif;
-  font-weight: 900;
-  font-stretch: condensed;
-  font-size: clamp(46px, 5.2vw, 76px);
-  line-height: 0.98;
-  letter-spacing: 0.012em;
-  text-transform: uppercase;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 4.5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .portfolio-hero-copy h1 > span {
@@ -446,8 +443,9 @@
 }
 
 .portfolio-floating-card > span {
-  font-family: Impact, sans-serif;
-  font-size: 30px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 26px;
   line-height: 1;
 }
 .portfolio-floating-card small {
@@ -613,8 +611,9 @@
   place-items: center;
   background: var(--portfolio-red);
   color: #fff;
-  font-family: Impact, sans-serif;
-  font-size: 16px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .portfolio-project-category {
@@ -728,9 +727,10 @@
 .portfolio-connect-strip h2 {
   margin: 5px 0 0;
   color: #fff;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 25px;
-  letter-spacing: 0.035em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.02em;
 }
 .portfolio-connect-strip button {
   border-radius: 2px !important;
@@ -818,12 +818,11 @@
   max-width: 600px;
   margin: 18px 0 15px;
   color: #fff;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(49px, 5.1vw, 73px);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 .case-hero-copy > p {
   max-width: 560px;
@@ -1116,7 +1115,7 @@
   right: -12px;
   bottom: -27px;
   color: rgba(238, 28, 37, 0.12);
-  font-family: Impact, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 156px;
   letter-spacing: -0.17em;
 }
@@ -1125,7 +1124,7 @@
   z-index: 1;
   margin: 20px 0 26px;
   color: #fff;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 38px;
   line-height: 0.94;
   letter-spacing: 0.03em;
@@ -1198,9 +1197,10 @@
 .case-next-project h2 {
   margin: 7px 0 0;
   color: #fff;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 35px;
-  letter-spacing: 0.02em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.02em;
 }
 .case-next-project > a {
   display: inline-flex;
@@ -1573,21 +1573,21 @@
    This layer only changes visual treatment; it does not affect React routes.
    -------------------------------------------------------------------------- */
 .portfolio-reference-theme {
-  --portfolio-black: #070707;
-  --portfolio-panel: #101010;
-  --portfolio-panel-soft: #151515;
-  --portfolio-line: rgba(255, 255, 255, 0.1);
-  --portfolio-text: #f4f3f1;
-  --portfolio-muted: #bebebe;
-  --portfolio-red: #e31e25;
-  --portfolio-red-dark: #bb1219;
+  --portfolio-black: #06090e;
+  --portfolio-panel: #0b0f19;
+  --portfolio-panel-soft: #121824;
+  --portfolio-line: rgba(255, 255, 255, 0.08);
+  --portfolio-text: #ffffff;
+  --portfolio-muted: #cbd5e1;
+  --portfolio-red: #76b900;
+  --portfolio-red-dark: #10b981;
   color: var(--portfolio-text);
 }
 
 .portfolio-showcase-hero {
   background: radial-gradient(
       circle at 80% 45%,
-      rgba(227, 30, 37, 0.1),
+      rgba(255, 126, 41, 0.15),
       transparent 24%
     ),
     linear-gradient(112deg, #060606 0%, #090909 63%, #101010 100%);

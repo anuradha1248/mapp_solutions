@@ -119,7 +119,7 @@ export default function Home() {
 
       {/* 6. Unified CTA section */}
       <section className="cta-banner-section" style={{ paddingBlock: "100px", position: "relative", overflow: "hidden", background: "var(--bg-secondary)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
-        <div className="red-glow" style={{ right: "auto", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(225, 29, 72, 0.08) 0%, transparent 70%)" }}></div>
+        <div className="red-glow" style={{ right: "auto", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(255, 126, 41, 0.15) 0%, transparent 70%)" }}></div>
         <div style={{ maxWidth: "800px", margin: "0 auto", paddingInline: "24px", textAlign: "center", position: "relative", zIndex: 2 }}>
           <h2 style={{ fontSize: "36px", fontWeight: "800", color: "var(--text-heading)", marginBottom: "20px", letterSpacing: "-0.02em" }}>Ready to Architect Your Digital Product?</h2>
           <p style={{ fontSize: "16px", color: "var(--text-body)", marginBottom: "36px", lineHeight: "1.6", maxWidth: "600px", marginInline: "auto" }}>

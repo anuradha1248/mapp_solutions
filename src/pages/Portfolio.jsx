@@ -1,224 +1,296 @@
-import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import {
-  ArrowRight,
-  CalendarDays,
-  ChevronLeft,
-  Check,
-  Code2,
-  Layers3,
-  Tag,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, Code2, Play, Sparkles, CheckCircle2 } from "lucide-react";
 import Button from "../components/Button/Button";
 import { PROJECTS_DATA } from "../data/siteData";
 import "../components/Portfolio/Portfolio.css";
 
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80";
+const CATEGORIES = ["All", "Mobile App", "Web / E-Commerce", "Custom Software"];
 
-function BrandMark() {
-  return (
-    <span className="portfolio-brand-mark case-brand-mark" aria-hidden="true">
-      <i></i>
-      <b></b>
-    </span>
-  );
-}
-
-export default function ProjectDetail() {
-  const { projectId } = useParams();
+export default function PortfolioPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedDemoProject, setSelectedDemoProject] = useState(null);
   const navigate = useNavigate();
-  const currentIndex = PROJECTS_DATA.findIndex(
-    (project) => project.id === projectId,
-  );
-  const project = currentIndex >= 0 ? PROJECTS_DATA[currentIndex] : null;
 
   useEffect(() => {
-    if (project) {
-      document.title = `${project.title} Case Study | Maheshwari App Solutions`;
-    }
-  }, [project]);
+    document.title = "Portfolio & Case Studies | Maheshwari App Solutions";
+  }, []);
 
-  if (!project) {
-    return (
-      <main className="portfolio-page-wrap case-not-found">
-        <div>
-          <span className="portfolio-kicker">404 / CASE STUDY</span>
-          <h1>PROJECT NOT FOUND.</h1>
-          <p>
-            The case study you requested does not exist or has been relocated.
-          </p>
-          <Button variant="primary" onClick={() => navigate("/portfolio")}>
-            Return to Portfolio
-          </Button>
-        </div>
-      </main>
-    );
-  }
-
-  const nextProject = PROJECTS_DATA[(currentIndex + 1) % PROJECTS_DATA.length];
-  const features = project.features || [];
-  const technologies = project.technologies || [];
+  const filteredProjects = PROJECTS_DATA.filter(
+    (proj) => activeCategory === "All" || proj.category.includes(activeCategory) || (activeCategory === "Mobile App" && proj.category.includes("Mobile"))
+  );
 
   return (
-    <main className="project-detail-wrap portfolio-reference-theme">
-      <section className="case-study-hero">
-        <div className="case-study-grid-glow" aria-hidden="true"></div>
+    <main className="portfolio-page-wrap portfolio-reference-theme">
+      {/* 1. Hero Showcase Header */}
+      <section className="portfolio-showcase-hero">
+        <div className="portfolio-hero-noise" aria-hidden="true"></div>
+        <div className="portfolio-dot-grid portfolio-dot-grid-top" aria-hidden="true"></div>
+
         <div className="portfolio-showcase-container">
-          <Link to="/portfolio" className="case-back-link">
-            <ChevronLeft size={17} /> BACK TO PORTFOLIO
-          </Link>
-
-          <div className="case-hero-layout">
-            <div className="case-hero-copy">
-              <div className="case-category-line">
-                <BrandMark />
-                <span>{project.category}</span>
+          <div className="portfolio-hero-topline">
+            <div className="portfolio-brand-lockup">
+              <span className="portfolio-brand-mark">
+                <i></i>
+                <b></b>
+              </span>
+              <div className="portfolio-brand-name">
+                MAPP SOLUTIONS
+                <small>ENGINEERING PORTFOLIO</small>
               </div>
-              <h1>{project.title}</h1>
-              <p>{project.tagline || project.shortDesc}</p>
+            </div>
 
-              <div className="case-meta-list">
+            <div className="portfolio-hero-promise">
+              <span></span>
+              <p>
+                Delivering high-fidelity digital products
+                <strong>Guaranteed Scalability & Performance</strong>
+              </p>
+            </div>
+          </div>
+
+          <div className="portfolio-hero-layout">
+            <div className="portfolio-hero-copy">
+              <span className="portfolio-kicker">FEATURED ENGINEERING CASE STUDIES</span>
+              <h1>
+                <span>PRODUCTION-READY</span>
+                <em>DIGITAL</em> <strong>PRODUCTS.</strong>
+              </h1>
+
+              <div className="portfolio-title-rule">
+                <i></i>
+                <b></b>
+              </div>
+
+              <p className="portfolio-hero-description">
+                Explore our portfolio of bespoke web applications, cross-platform mobile solutions, and enterprise software systems engineered for scale.
+              </p>
+
+              <div className="portfolio-capability-list">
                 <div>
-                  <CalendarDays size={17} />
-                  <span>
-                    <small>TIMELINE</small>
-                    {project.timeline || "Flexible delivery"}
-                  </span>
+                  <CheckCircle2 size={15} /> 50+ Enterprise Applications Delivered
                 </div>
                 <div>
-                  <Tag size={17} />
-                  <span>
-                    <small>SERVICE</small>
-                    {project.category}
-                  </span>
+                  <CheckCircle2 size={15} /> Sub-Second Load Performance & High Concurrency
+                </div>
+                <div>
+                  <CheckCircle2 size={15} /> 100% HIPAA & GDPR Compliant Security
                 </div>
               </div>
             </div>
 
-            <div className="case-device-stage">
-              <div className="case-device-arc" aria-hidden="true"></div>
-              <div className="case-browser-frame">
-                <div className="case-browser-bar">
+            <div className="portfolio-hero-visual">
+              <div className="portfolio-visual-arch" aria-hidden="true"></div>
+              <div className="portfolio-screen-frame">
+                <div className="portfolio-screen-topbar">
+                  <span className="portfolio-brand-lockup compact">
+                    <span className="portfolio-brand-mark">
+                      <i></i>
+                      <b></b>
+                    </span>
+                  </span>
                   <span></span>
                   <span></span>
                   <span></span>
-                  <i>{project.title}</i>
                 </div>
                 <img
-                  src={project.image || FALLBACK_IMAGE}
-                  alt={`${project.title} interface`}
+                  src={PROJECTS_DATA[0].image}
+                  alt="Featured Application Preview"
                 />
-                <div className="case-browser-shade"></div>
+                <div className="portfolio-screen-overlay">
+                  <span>PRODUCTION DEMO SHOWCASE</span>
+                  <strong>{PROJECTS_DATA[0].title}</strong>
+                </div>
               </div>
-              <span className="case-frame-label">
-                CASE
-                <br />
-                STUDY
-              </span>
+
+              <div className="portfolio-floating-card">
+                <span>99.9%</span>
+                <small>UPTIME &<br />RELIABILITY</small>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="case-study-content">
-        <div className="portfolio-showcase-container">
-          <div className="case-overview-grid">
-            <div className="case-heading-block">
-              <span className="portfolio-kicker">01 / OVERVIEW</span>
-              <h2>
-                BUILT FOR
-                <br />
-                <span>BETTER RESULTS.</span>
-              </h2>
-            </div>
-            <p className="case-large-copy">{project.overview}</p>
-          </div>
-
-          <div className="case-challenge-grid">
-            <article className="case-info-card">
-              <span className="case-card-number">01</span>
-              <h3>The Challenge</h3>
-              <p>{project.problem}</p>
-            </article>
-            <article className="case-info-card case-solution-card">
-              <span className="case-card-number">02</span>
-              <h3>Our Solution</h3>
-              <p>{project.solution}</p>
-            </article>
-          </div>
-
-          <section className="case-visual-section">
-            <div className="case-section-intro">
-              <span className="portfolio-kicker">02 / THE EXPERIENCE</span>
-              <h2>
-                DESIGNED TO
-                <br />
-                <span>PERFORM.</span>
-              </h2>
-            </div>
-            <div className="case-visual-window">
-              <div className="case-visual-window-bar">
-                <BrandMark />
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <img
-                src={project.image || FALLBACK_IMAGE}
-                alt={`${project.title} project preview`}
-              />
-              <div className="case-visual-window-caption">
-                <Code2 size={18} />
-                <span>{project.title} / Production Interface</span>
-              </div>
-            </div>
-          </section>
-
-          <div className="case-specs-grid">
-            <section className="case-features-panel">
-              <div className="case-panel-title">
-                <Layers3 size={20} />
-                <h3>Integrated Features</h3>
-              </div>
-              <ul>
-                {features.map((feature) => (
-                  <li key={feature}>
-                    <Check size={16} /> {feature}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <section className="case-tech-panel">
-              <span className="portfolio-kicker">TECHNOLOGY STACK</span>
-              <h3>
-                THE TOOLS
-                <br />
-                BEHIND THE BUILD.
-              </h3>
-              <div className="case-tech-list">
-                {technologies.map((technology) => (
-                  <span key={technology}>{technology}</span>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <section className="case-result-strip">
-            <span>THE RESULT</span>
-            <p>“{project.result}”</p>
-          </section>
-
-          <section className="case-next-project">
+      {/* 2. Main Work Listing Section */}
+      <section className="portfolio-work-section">
+        <div className="portfolio-work-curve" aria-hidden="true"></div>
+        <div className="portfolio-showcase-container portfolio-work-content">
+          <div className="portfolio-section-heading">
             <div>
-              <span>NEXT CASE STUDY</span>
-              <h2>{nextProject.title}</h2>
+              <span className="portfolio-kicker">SELECTED WORK</span>
+              <h2>
+                OUR <span>DELIVERED PROJECTS.</span>
+              </h2>
             </div>
-            <Link to={`/portfolio/${nextProject.id}`}>
-              VIEW PROJECT <ArrowRight size={18} />
-            </Link>
-          </section>
+            <p>
+              Filter through our case studies to explore how we solve technical problems and drive business growth.
+            </p>
+          </div>
+
+          {/* Filter Tabs */}
+          <div className="portfolio-filters">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`filter-btn ${activeCategory === cat ? "active" : ""}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Projects Grid */}
+          <div className="portfolio-project-grid">
+            {filteredProjects.map((proj, idx) => (
+              <article key={proj.id} className="portfolio-project-card">
+                <div className="portfolio-project-image-wrap">
+                  <span className="portfolio-project-index">0{idx + 1}</span>
+                  <img
+                    src={proj.image}
+                    alt={proj.title}
+                    className="portfolio-project-image"
+                    loading="lazy"
+                  />
+                  <div className="portfolio-project-image-shade"></div>
+                  <span className="portfolio-project-category">{proj.category}</span>
+                </div>
+
+                <div className="portfolio-project-content">
+                  <h3>{proj.title}</h3>
+                  <p>{proj.shortDesc || proj.tagline}</p>
+
+                  <div className="portfolio-project-tags">
+                    {proj.technologies.slice(0, 4).map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
+
+                  <div style={{ marginTop: "16px", padding: "12px", background: "rgba(255, 126, 41, 0.12)", borderRadius: "6px", borderLeft: "3px solid var(--accent)" }}>
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: "var(--accent)", display: "block", marginBottom: "3px" }}>IMPACT & RESULT</span>
+                    <span style={{ fontSize: "13px", color: "var(--text-body)" }}>{proj.result}</span>
+                  </div>
+
+                  <div className="portfolio-project-action" style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+                    <Button
+                      variant="secondary"
+                      className="view-case-btn"
+                      style={{ flex: 1 }}
+                      onClick={() => navigate(`/portfolio/${proj.id}`)}
+                    >
+                      View Case Study <ArrowRight size={14} />
+                    </Button>
+
+                    <Button
+                      variant="primary"
+                      style={{ flex: 1, padding: "10px 14px", fontSize: "11px" }}
+                      onClick={() => setSelectedDemoProject(proj)}
+                    >
+                      Live Demo <Play size={13} style={{ fill: "currentColor" }} />
+                    </Button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Live Demo Interactive Modal */}
+      {selectedDemoProject && (
+        <div 
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 1000,
+            background: "rgba(0, 0, 0, 0.85)",
+            backdropFilter: "blur(8px)",
+            display: "grid",
+            placeItems: "center",
+            padding: "20px"
+          }}
+          onClick={() => setSelectedDemoProject(null)}
+        >
+          <div 
+            style={{
+              maxWidth: "750px",
+              width: "100%",
+              background: "#0E1117",
+              border: "1px solid var(--accent)",
+              borderRadius: "16px",
+              overflow: "hidden",
+              boxShadow: "0 24px 60px rgba(0, 0, 0, 0.8)"
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ padding: "18px 24px", background: "#161B22", borderBottom: "1px solid rgba(255, 255, 255, 0.1)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <Sparkles size={18} color="var(--accent)" />
+                <h3 style={{ margin: 0, color: "#fff", fontSize: "18px", fontWeight: "700" }}>Live Interactive Demo: {selectedDemoProject.title}</h3>
+              </div>
+              <button 
+                onClick={() => setSelectedDemoProject(null)}
+                style={{ background: "none", border: "none", color: "#94A3B8", fontSize: "20px", cursor: "pointer" }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div style={{ padding: "28px 24px" }}>
+              <div style={{ aspectRatio: "16/9", borderRadius: "10px", overflow: "hidden", background: "#050505", border: "1px solid rgba(255, 255, 255, 0.1)", position: "relative", display: "grid", placeItems: "center" }}>
+                <img src={selectedDemoProject.image} alt={selectedDemoProject.title} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.4 }} />
+                <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", textAlign: "center", padding: "20px" }}>
+                  <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "var(--accent)", color: "#fff", display: "grid", placeItems: "center", boxShadow: "0 0 30px rgba(255, 126, 41, 0.5)" }}>
+                    <Play size={28} style={{ marginLeft: "4px", fill: "currentColor" }} />
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", fontSize: "20px", margin: "0 0 6px" }}>{selectedDemoProject.title} Simulator</h4>
+                    <p style={{ color: "#CBD5E1", fontSize: "14px", margin: 0, maxWidth: "420px" }}>
+                      {selectedDemoProject.overview}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+                <div style={{ padding: "14px", background: "#161B22", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                  <strong style={{ color: "var(--accent)", fontSize: "12px", display: "block", marginBottom: "4px" }}>CORE PROBLEM SOLVED</strong>
+                  <p style={{ color: "#CBD5E1", fontSize: "13px", margin: 0 }}>{selectedDemoProject.problem}</p>
+                </div>
+                <div style={{ padding: "14px", background: "#161B22", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                  <strong style={{ color: "var(--accent)", fontSize: "12px", display: "block", marginBottom: "4px" }}>OUR TECHNICAL SOLUTION</strong>
+                  <p style={{ color: "#CBD5E1", fontSize: "13px", margin: 0 }}>{selectedDemoProject.solution}</p>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ padding: "16px 24px", background: "#161B22", borderTop: "1px solid rgba(255, 255, 255, 0.1)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: "12px", color: "#94A3B8" }}>Timeline: {selectedDemoProject.timeline}</span>
+              <Button variant="primary" onClick={() => { setSelectedDemoProject(null); navigate(`/portfolio/${selectedDemoProject.id}`); }}>
+                Read Full Case Study <ArrowRight size={14} />
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 4. Bottom CTA Strip */}
+      <section className="portfolio-connect-section">
+        <div className="portfolio-showcase-container">
+          <div className="portfolio-connect-strip">
+            <div className="portfolio-connect-icon">
+              <Code2 size={24} />
+            </div>
+            <div>
+              <span>HAVE A CUSTOM SOFTWARE OR APP IDEA?</span>
+              <h2>LET'S ARCHITECT YOUR DIGITAL PRODUCT.</h2>
+            </div>
+            <Button variant="primary" onClick={() => navigate("/contact")}>
+              Get a Technical Quote
+            </Button>
+          </div>
         </div>
       </section>
     </main>

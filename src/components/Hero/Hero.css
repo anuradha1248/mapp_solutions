@@ -9,10 +9,10 @@
   padding: 122px 0 80px;
   background: radial-gradient(
       circle at 77% 50%,
-      rgba(227, 30, 37, 0.11),
-      transparent 23%
+      rgba(255, 126, 41, 0.15),
+      transparent 25%
     ),
-    linear-gradient(110deg, #050505, #0a0a0a 66%, #111);
+    linear-gradient(110deg, #080a0f, #0e121a 66%, #141a26);
 }
 .hero-container {
   position: relative;
@@ -50,7 +50,7 @@
   width: 630px;
   height: 630px;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(227, 30, 37, 0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 126, 41, 0.15), transparent 70%);
   filter: blur(120px);
 }
 .hero-dot-grid {
@@ -73,7 +73,7 @@
   width: 57px;
   height: 4px;
   margin-bottom: 19px;
-  background: linear-gradient(to right, #f4f3f1 0 59%, var(--accent) 59%);
+  background: linear-gradient(to right, #ffffff 0 59%, var(--accent) 59%);
 }
 .hero-left .badge {
   padding: 0;
@@ -81,37 +81,37 @@
   border-radius: 0;
   color: var(--accent);
   background: transparent;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 .hero-left h1 {
   max-width: 630px;
   margin: 19px 0 20px;
-  color: #f4f3f1;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black",
-    sans-serif;
-  font-size: clamp(48px, 5.2vw, 76px);
-  font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: 0.013em;
-  text-transform: uppercase;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(42px, 4.8vw, 68px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 .hero-left h1 span {
   display: block;
-  color: #f4f3f1;
+  color: #ffffff;
 }
 .hero-left h1 em {
   margin-right: 7px;
   color: var(--accent);
-  font-family: cursive;
-  font-size: 0.66em;
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  text-transform: none;
+  font-style: normal;
+  font-size: 0.9em;
+  font-weight: 800;
 }
 .hero-left h1 strong {
   color: var(--accent);
+  background: linear-gradient(135deg, #ff7e29 0%, #ff5500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero-left > p {
   max-width: 505px;
@@ -298,10 +298,11 @@
   z-index: 1;
   right: 5px;
   top: 51px;
-  color: rgba(255, 255, 255, 0.2);
-  font-family: Impact, sans-serif;
+  color: rgba(255, 255, 255, 0.15);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 900;
   font-size: 58px;
-  letter-spacing: -0.17em;
+  letter-spacing: -0.05em;
 }
 .hero-right:hover .laptop-wrapper {
   transform: translateY(-4px);

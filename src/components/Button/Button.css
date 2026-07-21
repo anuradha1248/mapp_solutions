@@ -22,22 +22,22 @@
 }
 .btn-primary {
   color: #fff;
-  background: var(--accent);
-  box-shadow: 0 8px 18px rgba(227, 30, 37, 0.16);
+  background: var(--accent-gradient, var(--accent));
+  box-shadow: 0 8px 18px rgba(255, 126, 41, 0.3);
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 10px 23px rgba(227, 30, 37, 0.22);
+  background: var(--accent-gradient-hover, var(--accent-hover));
+  box-shadow: 0 10px 23px rgba(255, 126, 41, 0.45);
   transform: translateY(-2px);
 }
 .btn-secondary {
   color: var(--text-heading);
-  background: rgba(255, 255, 255, 0.01);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 .btn-secondary:hover {
   color: #fff;
-  background: rgba(227, 30, 37, 0.06);
+  background: rgba(255, 126, 41, 0.12);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
